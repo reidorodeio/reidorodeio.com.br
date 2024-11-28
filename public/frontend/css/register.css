@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@800&family=Roboto+Slab:wght@100..900&display=swap");
+
+body {
+    font-family: "Outfit", serif;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+/* Container do cadastro com borda animada */
+.signup-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    position: relative;
+    text-align: center;
+    color: #000000;
+    margin-top: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.signup-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
+    padding: 2px;
+    background: linear-gradient(45deg, #2a6a55, #2a6a55, #FFFFFF, #ffffff);
+    background-size: 400%;
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    animation: glowing-border 5s linear infinite;
+}
+
+@keyframes glowing-border {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Estilo do título */
+h2, .subtitle {
+    color: #2a6a55;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Estilos dos campos de entrada com borda verde e etiqueta */
+.single-input-inner {
+    border: 2px solid #2a6a55; /* Borda verde brilhante */
+    outline: none; /* Remove a linha padrão de foco */
+}
+
+.single-input-inner input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 2px solid #2a6a55;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #000;
+}
+
+.single-input-inner .input-group-text {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    background: #ffffff;
+    padding: 0 5px;
+    color: #2a6a55;
+    font-size: 0.9em;
+}
+
+/* Estilo do botão "Cadastrar" */
+button {
+    color: #fff;
+    background-color: #2a6a55;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+/* Estilo do link "Jogar agora!" */
+.signup-link a {
+    color: #2a6a55;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 2px solid #2a6a55;
+    border-radius: 8px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.signup-link a:hover {
+    color: #2a6a55;
+    border-color: #2a6a55;
+}
+

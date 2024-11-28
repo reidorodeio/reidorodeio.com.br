@@ -1,0 +1,51 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+/* Animação de bordas para os containers de eventos */
+.event-category-card {
+    padding: 20px;
+    border: 2px solid #ff9800;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+        border-color: #ff5722;
+        transform: translateY(-10px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.event-category-card {
+    background-color: #ff9800;
+    border: 2px solid #ff9800;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.7);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-category-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 140, 0, 1);
+}
+
+.btn--fire {
+    background-color: #ff8a00;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.btn--fire:hover {
+    background-color: #ff5722;
+}
+
+

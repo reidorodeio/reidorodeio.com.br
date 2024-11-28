@@ -1,0 +1,239 @@
+/* Estilos Gerais */
+body {
+    font-family: Arial, sans-serif;
+    position: relative;
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.page-container {
+    max-width: 100%; /* Remova qualquer limite */
+    width: 100%; /* Preenche 100% da largura */
+    margin: 0 auto; /* Centraliza o conteúdo */
+    padding: 20px; /* Espaçamento interno */
+    display: flex; /* Mantém o layout flexível */
+    flex-wrap: nowrap; /* Impede quebra de linha */
+    gap: 20px; /* Espaço entre as seções */
+}
+
+/* Seção Lateral */
+.side-section {
+    flex: 1; /* Ajuste proporcional */
+    max-width: 25%; /* Limite máximo para a barra lateral */
+    gap: 20px;
+}
+
+.profile-photo-wrapper {
+    text-align: center;
+}
+
+.photo-wrapper {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    background-size: cover;
+    background-position: center;
+    border: 3px solid #2a6a55;
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+.photo-wrapper:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 128, 0, 0.3);
+}
+
+.btn-update-photo {
+    background-color: #34b572;
+    color: white;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-update-photo:hover {
+    background-color: #2a6a55;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 128, 0, 0.3);
+}
+
+/* Ranking Geral */
+.ranking-section,
+.ads-section {
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ranking-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.ranking-section li {
+    margin: 5px 0;
+}
+
+/* Google Ads */
+.ads-section {
+    text-align: center;
+}
+
+.ad-placeholder {
+    background-color: #f0f0f0;
+    color: #2a6a55;
+    padding: 20px;
+    border: 1px dashed #2a6a55;
+    border-radius: 10px;
+}
+
+.main-section {
+    flex: 3; /* Área principal maior */
+    max-width: 70%; /* Limite máximo para o conteúdo */
+    gap: 20px;
+}
+
+.profile-info {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.profile-info h3 {
+    color: #2a6a55;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Informações do Cliente */
+.input-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: white;
+    background-color: #2a6a55;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #2a6a55;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: #2a6a55;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #34b572;
+    box-shadow: 0 0 5px rgba(52, 181, 114, 0.7);
+}
+
+/* Botões */
+.btn-update {
+    background-color: #2a6a55;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.btn-update:hover {
+    background-color: #34b572;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 128, 0, 0.3);
+}
+
+/* Bolão e Equipes */
+.bolao-section,
+.teams-section {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-join {
+    background-color: #34b572;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-join:hover {
+    background-color: #2a6a55;
+    transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .page-container {
+        flex-direction: column;
+    }
+
+    .photo-wrapper {
+        width: 150px;
+        height: 150px;
+    }
+
+    .btn-update,
+    .btn-update-photo {
+        font-size: 0.9rem;
+    }
+
+    .ads-section,
+    .ranking-section,
+    .bolao-section,
+    .teams-section {
+        text-align: center;
+    }
+}
+
+@media (min-width: 1056px) {
+    .page-container {
+        justify-content: space-between; /* Garante distribuição das seções */
+        padding: 40px; /* Mais espaçamento para telas grandes */
+    }
+}

@@ -1,0 +1,115 @@
+/* Estilo para o carrossel lateral */
+.competitor-carousel-wrapper {
+    display: flex;
+    justify-content: space-between;
+    overflow-x: auto; /* Para permitir a rolagem horizontal */
+    max-width: 412px;
+    padding: 10px 0;
+    scroll-behavior: smooth;
+}
+
+/* Estilos para dispositivos móveis */
+.competitor-carousel {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+
+
+.competitor-item {
+    flex: 0 0 auto;
+    text-align: center;
+    cursor: pointer;
+}
+
+.competitor-photo {
+    width: 100px; /* Reduzir o tamanho para ajustar à tela */
+    height: 100px;
+    border-radius: 100%;
+    object-fit: cover;
+    margin: 0 auto; /* Centraliza o avatar */
+}
+
+/* Estilo para o bilhete fixo */
+#bilhete-fixo {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 10px;
+    display: flex; /* Flexbox para organizar os elementos */
+    justify-content: center; /* Centraliza os elementos no bilhete */
+    gap: 20px; /* Espaçamento entre os itens */
+    z-index: 1000;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.5);
+}
+
+#bilhete-fixo .bilhete-item {
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+}
+
+#bilhete-fixo img {
+    width: 70px; /* Dimensão das imagens no bilhete */
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+#bilhete-fixo .bilhete-item span {
+    display: block;
+    font-size: 12px;
+    color: #fff;
+}
+
+/* Ajustes para o botão de finalizar */
+#finalizar-btn {
+    margin-top: 15px;
+}
+
+/* Para centralizar na versão PC */
+@media (min-width: 768px) {
+    .competitor-carousel-wrapper {
+        display: flex;
+        justify-content: center; /* Centraliza os competidores */
+        align-items: center;
+        gap: 20px; /* Adiciona espaço entre os itens */
+    }
+
+    /* Ajusta a largura máxima para o container do conteúdo */
+    .container {
+        max-width: 1200px; /* Largura máxima no PC */
+        margin: 0 auto; /* Centraliza o container */
+    }
+
+    .competitor-item {
+        flex: 0 0 auto;
+        margin: 0 15px; /* Espaçamento entre competidores */
+        text-align: center;
+    }
+
+    .competitor-photo {
+        width: 100px; /* Tamanho da foto do competidor */
+        height: 100px;
+        border-radius: 50%;
+    }
+
+    #bilhete-fixo {
+        display: flex;
+        justify-content: center; /* Centraliza os avatares no rodapé */
+        padding: 10px;
+    }
+
+    #finalizar-btn {
+        margin-left: 20px; /* Espaço ao lado dos competidores */
+        margin-right: 20px;
+    }
+
+    .bilhete-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

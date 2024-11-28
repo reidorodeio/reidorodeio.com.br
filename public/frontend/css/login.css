@@ -1,0 +1,328 @@
+:root {
+    --glow-color: hsl(160, 43%, 30%);
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: "Outfit", sans-serif;
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    color: #6e6d6d;
+}
+
+.glowing-btn {
+    position: relative;
+    color: var(--glow-color);
+    cursor: pointer;
+    padding: 0.35em 1em;
+    border: 0.15em solid var(--glow-color);
+    border-radius: 0.45em;
+    background: none;
+    perspective: 2em;
+    font-family: "Raleway", sans-serif;
+    font-size: 1em;
+    font-weight: 900;
+    letter-spacing: 0.2em; /* Reduzindo o espaçamento para melhor legibilidade */
+    text-align: center;
+
+    box-shadow: 0px 0px 0.5em var(--glow-color), inset 0px 0px 0.5em var(--glow-color);
+    animation: border-flicker 2s linear infinite;
+    transition: all 0.2s ease-in-out; /* Transição para suavizar mudanças */
+}
+
+.glowing-btn:hover,
+.glowing-btn:focus,
+.glowing-btn:active {
+    color: white; /* Cor do texto ao interagir */
+    text-shadow: 0px 0px 8px var(--glow-color); /* Efeito de brilho opcional */
+    animation: none; /* Desativa animações no hover */
+    transform: scale(1.05); /* Pequeno efeito de zoom */
+    outline: none; /* Remove o contorno padrão */
+}
+
+.glowing-btn:hover::before,
+.glowing-btn:focus::before,
+.glowing-btn:active::before {
+    filter: blur(1.5em);
+    opacity: 1;
+    transform: translateY(110%) rotateX(90deg) scale(1, 0.4); /* Ajuste no efeito 3D */
+}
+
+.glowing-btn:hover::after,
+.glowing-btn:focus::after,
+.glowing-btn:active::after {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out; /* Suaviza a transição */
+}
+
+@keyframes faulty-flicker {
+    0%, 2% {
+        opacity: 0.1;
+    }
+    4%, 19% {
+        opacity: 0.5;
+    }
+    21% {
+        opacity: 0.1;
+    }
+    23%, 87% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0.5;
+    }
+    83% {
+        opacity: 0.4;
+    }
+}
+
+@keyframes text-flicker {
+    0%, 8%, 12% {
+        opacity: 0.1;
+    }
+    2%, 9%, 20%, 30%, 77% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.3;
+    }
+    70% {
+        opacity: 0.7;
+    }
+    72% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0.9;
+    }
+}
+
+@keyframes border-flicker {
+    0%, 4% {
+        opacity: 0.1;
+    }
+    2%, 8%, 100% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 0.7;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .glowing-btn {
+        font-size: 1em;
+    }
+}
+
+  
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90vw; /* 90% da largura da viewport */
+    max-width: 500px; /* Máximo de 500px */
+    height: 80vh; /* 80% da altura da viewport */
+    max-height: 700px; /* Máximo de 700px */
+    background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/cover;
+    border-radius: 10px;
+    box-shadow: 5px 20px 50px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.signup, .login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.8s ease-in-out;
+    opacity: 1;
+    text-align: center; /* Centraliza textos dentro dos inputs */
+}
+
+.signup {
+    background: #ffffff;
+    border-radius: 15px;
+}
+
+.login {
+    background: #ffffff;
+    border-radius: 15px;
+}
+
+#chk {
+    display: none;
+    color: #2a6a55; /* Cor verde para o texto */
+    font-size: 0.8em;
+    font-weight: bold;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+/* Estilo para o label associado ao #chk */
+.toggle-btn {
+    display: block;
+    margin: 10px auto; /* Centraliza horizontalmente e adiciona margem superior */
+    color: #2a6a55;
+    font-size: 0.8em;
+    padding: 5px;
+    border: 1px solid #2a6a55;
+    border-radius: 1px;
+    text-align: center; /* Garante que o texto fique centralizado */
+}
+
+
+#chk:checked ~ .signup {
+    opacity: 1;
+    z-index: 1; /* Traz a tela de signup para frente */
+}
+
+#chk:checked ~ .login {
+    opacity: 0;
+    z-index: 0; /* Manda a tela de login para trás */
+}
+
+label {
+    color: #fffcf2;
+    font-size: 2em;
+    justify-content: center;
+    display: flex;
+    margin: 20px 0;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+input {
+    width: 80%;
+    height: 10px;
+    background: #ffffff;
+    justify-content: center;
+    display: flex;
+    margin: 10px auto;
+    padding: 15px;
+    border: 1px solid #2a6a55;
+    color: #2a6a55 !important; /* Força a aplicação da cor do texto */
+    outline: none;
+    border-radius: 7px;
+    font-size: 1em;
+}
+
+
+button {
+    width: 60%;
+    height: 40px;
+    margin: 10px auto;
+    justify-content: center;
+    display: block;
+    color: #ffffff;
+    background: #2a6a55;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 30px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #2a6a55;
+}
+
+/* Fundo escurecido para o popup */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards, fadeOut 0.5s ease 2s forwards; /* fadeOut inicia após 2s */
+}
+
+/* Estilos gerais do popup */
+.alert {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.1em;
+    max-width: 80%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: popIn 0.3s ease-out, fadeOut 0.5s ease 2s forwards; /* fadeOut inicia após 2s */
+}
+
+/* Alerta de sucesso */
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+/* Alerta de erro */
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+/* Animação de "pop" ao aparecer */
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    80% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Animação para desaparecer gradualmente */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Animação de fundo escurecido */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+

@@ -1,0 +1,116 @@
+/* Estilos gerais */
+body, html {
+    background-color: #2a6a55; /* Fundo verde */
+    color: white; /* Texto branco */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    background-color: #393737; /* Fundo verde */
+    border-radius: 25px; /* Bordas arredondadas */
+    margin: 40px 5px;
+    padding: 20px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Sombra leve */
+}
+
+/* Row */
+.footer .row {
+    display: flex;
+    min-width: 100px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #2a6a55; /* Fundo verde */
+    border-radius: 15px; /* Bordas arredondadas */
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+/* Imagens de certificação */
+.footer-certification-img {
+    max-width: 100px;
+    margin: 10px;
+    border-radius: 10px; /* Bordas arredondadas */
+    overflow: hidden;
+}
+
+/* Social Links */
+.footer-social-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer-social-list li a {
+    font-size: 24px;
+    color: white; /* Texto branco */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-social-list li a:hover {
+    color: #D93025; /* Destaque ao passar o mouse */
+}
+
+/* Botões */
+.btn {
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 12px; /* Bordas arredondadas */
+    color: white;
+    background-color: #2a6a55; /* Fundo verde */
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #3EA77D; /* Efeito hover */
+    transform: scale(1.05); /* Leve zoom */
+}
+
+/* Copyright */
+.footer-copyright {
+    font-size: 14px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 767px) {
+    .footer {
+        padding: 10px;
+    }
+
+    .footer-certification-img {
+        width: 150px;
+    }
+
+    .row {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .footer-social-list li a {
+        font-size: 20px;
+    }
+
+    .footer-copyright {
+        font-size: 12px;
+    }
+}
